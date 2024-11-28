@@ -13,7 +13,7 @@ cursor = conn.cursor()
 dados_clientes = ("João Silva", 30)
 
 
-# Place Holders (?, ?): Os pontos de interrogação são usados comoaaaa
+# Place Holders (?, ?): Os pontos de interrogação são usados como
 # "espaços reservados". Eles  serão substituidos pelos valores da
 # tuplas dados_cliente (ou seja, "João Silva" e 30)
 # Por quê: usar placeholders é uma pratica recomendada,
