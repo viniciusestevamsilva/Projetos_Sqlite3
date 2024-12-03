@@ -4,7 +4,7 @@ conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
 
 cursor = conn.cursor()
 
-# Criar a tabela 'passageiro'
+
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS passageiro (
         id_passageiro INTEGER PRIMARY KEY AUTOINCREMENT, 
@@ -16,7 +16,7 @@ cursor.execute('''
     )
 ''')
 
-# Criar a tabela 'terminal_viagens'
+
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS terminal_viagens (
         id_terminal INTEGER PRIMARY KEY AUTOINCREMENT,  
@@ -27,7 +27,7 @@ cursor.execute('''
     )
 ''')
 
-# Criar a tabela 'companhia_aerea'
+
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS companhia_aerea (
         id_companhia INTEGER PRIMARY KEY AUTOINCREMENT,  
@@ -37,7 +37,6 @@ cursor.execute('''
     )
 ''')
 
-# Criar a tabela 'ticket'
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS ticket (
         ticket_id INTEGER PRIMARY KEY AUTOINCREMENT,  

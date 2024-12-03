@@ -4,7 +4,7 @@ from prettytable import PrettyTable
 
 class Exibir:
     def exibir(self, tabela):
-        conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/bd_aeroporto.db")
+        conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
         cursor = conn.cursor()
 
         
@@ -28,7 +28,7 @@ class Exibir:
 
 class Adicionar:
     def adicionar(self, tabela):
-        conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/bd_aeroporto.db")
+        conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
         cursor = conn.cursor()
 
        
@@ -44,27 +44,34 @@ class Adicionar:
 
 class Atualizar:
     def atualizar(self, tabela, identificador, valor):
-        conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/bd_aeroporto.db")
+        # Conexão com o banco de dados
+        conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
         cursor = conn.cursor()
 
-        
+        # Solicita campos e dados
         campos = input('Digite os campos a serem atualizados (separados por vírgula): ').split(',')
         dados = input('Digite os novos dados (separados por vírgula): ').split(',')
 
-        
-        campos_e_dados = dict(zip(campos, dados))
+        # Verifica se o número de campos e dados é igual
+        if len(campos) != len(dados):
+            print("O número de campos não corresponde ao número de dados fornecidos.")
+            return
 
-        
-        for campo, dado in campos_e_dados.items():
+        # Atualiza os registros
+        for i in range(len(campos)):
+            campo = campos[i].strip()  # Remove espaços extras
+            dado = dados[i].strip()  # Remove espaços extras
             cursor.execute(f"UPDATE {tabela} SET {campo} = ? WHERE {identificador} = ?", (dado, valor))
-        
+
+        # Confirma a transação e fecha a conexão
         conn.commit()
         conn.close()
 
 
+
 class Apagar:
     def apagar(self, tabela, identificador, valor):
-        conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/bd_aeroporto.db")
+        conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
         cursor = conn.cursor()
 
        
