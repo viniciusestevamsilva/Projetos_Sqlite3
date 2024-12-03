@@ -10,15 +10,15 @@ conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
 
 while True:
     os.system('cls') 
-    print('+----------------+')
-    print('+    BEM-VINDO   +')
-    print('+----------------+')
-    print(' 1 - Exibir')
-    print(' 2 - Adicionar')
-    print(' 3 - Atualizar')
-    print(' 4 - Apagar')
-    print(' 5 - Finalizar')
-    print('+----------------+')
+    print('+-----------------+          +-------------------+')
+    print('+ MENU COMANDOS   +          +      TABELAS      +')
+    print('+-----------------+          +-------------------+')
+    print('+ 1 - Exibir      +          +   companhia_aerea +')
+    print('+ 2 - Adicionar   +          +      passageiro   +')
+    print('+ 3 - Atualizar   +          +  terminal_viagens +')
+    print('+ 4 - Apagar      +          +       ticket      +')
+    print('+ 5 - Finalizar   +          +-------------------+')
+    print('+-----------------+')
 
     opcao = input('Opção escolhida: ')
 
@@ -91,4 +91,3 @@ while True:
         print('Opção inválida. Tente novamente.')
         print('+------------------------------+')
         input('Pressione ENTER para voltar')
-

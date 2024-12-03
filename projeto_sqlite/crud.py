@@ -33,11 +33,11 @@ class Adicionar:
         cursor = conn.cursor()
 
         print()
-        campos = input('Digite os campos (separados por vírgula): ').split(',')
+        colunas = input('Digite as colunas (separados por vírgula): ').split(',')
         dados = input('Digite os dados (separados por vírgula): ').split(',')
 
-       
-        cursor.execute(f"INSERT INTO {tabela} ({', '.join(campos)}) VALUES ({', '.join(['?'] * len(campos))})", dados)
+       # o 1° join cria uma lista com as colunas 2°join fazuma lista com os placeholders '?', que os valores que vao ser inseridos
+        cursor.execute(f"INSERT INTO {tabela} ({', '.join(colunas)}) VALUES ({', '.join(['?'] * len(colunas))})", dados)
         
         conn.commit()
         conn.close()
@@ -45,26 +45,25 @@ class Adicionar:
 # ========================== COMANDO ATUALIZAR =============
 class Atualizar:
     def atualizar(self, tabela, identificador, valor):
-        # Conexão com o banco de dados
         conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
         cursor = conn.cursor()
 
         print()
-        campos = input('Digite os campos a serem atualizados (separados por vírgula): ').split(',')
+        colunas = input('Digite as colunas que seram atualizadas (separados por vírgula): ').split(',')
         dados = input('Digite os novos dados (separados por vírgula): ').split(',')
 
         
-        if len(campos) != len(dados):
+        if len(colunas) != len(dados):
             print('+----------------------------------------+')
-            print("+    O número de campos não corresponde  +")
+            print("+   O número de colunas não corresponde  +")
             print("+      ao número de dados fornecidos.    +")
             return
 
         # Atualiza os registros
-        for i in range(len(campos)):
-            campo = campos[i].strip()
+        for i in range(len(colunas)):
+            coluna = colunas[i].strip()
             dado = dados[i].strip()  
-            cursor.execute(f"UPDATE {tabela} SET {campo} = ? WHERE {identificador} = ?", (dado, valor))
+            cursor.execute(f"UPDATE {tabela} SET {coluna} = ? WHERE {identificador} = ?", (dado, valor))
 
         
         conn.commit()
@@ -82,4 +81,3 @@ class Apagar:
         
         conn.commit()
         conn.close()
-
