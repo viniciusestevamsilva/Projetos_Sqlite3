@@ -1,6 +1,5 @@
 import sqlite3
 
-# Conectar ao banco de dados
 conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
 
 cursor = conn.cursor()
@@ -50,10 +49,6 @@ cursor.execute('''
     )
 ''')
 
-# Salvar as alterações no banco de dados
 conn.commit()
 
-# Fechar a conexão
 conn.close()
-
-
