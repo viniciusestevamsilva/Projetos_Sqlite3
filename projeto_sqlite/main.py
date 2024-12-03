@@ -1,16 +1,16 @@
 import os
-import math
 import sqlite3
 from comandos import Exibir
 from comandos import Adicionar
 from comandos import Atualizar
 from comandos import Apagar
+conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
 
 
 
-
+os.system('cls')
 while True:
-    os.system('cls')
+
     print('+----------------+')
     print('+    BEM-VINDO   +')
     print('+----------------+')
@@ -30,7 +30,17 @@ while True:
 
     elif opcao == 1:
         busca = Exibir()
-    # elif opcao == 2:
-    # elif opcao == 3:
-    # elif opcao == 4:
-
+        
+    elif opcao == 2:
+        nome = input('Insira o nome: ')
+        cpf = input('Insira o CPF: ')
+        data_de_nascimento = input('Insira a data de nascimento: ')
+        classe = input('Digite sua classe: ')
+        assento = input('Digite seu assento: ')
+        adicionar = Adicionar()
+        
+    elif opcao == 3:
+        atualizar = Atualizar()
+        
+    elif opcao == 4:
+        apagar = Apagar()

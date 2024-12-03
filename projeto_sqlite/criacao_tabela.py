@@ -4,46 +4,46 @@
 
 import sqlite3
 
-conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/bd_viagens.py")
+conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
 
 cursor = conn.cursor()
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS passageiro (
-        id passageiro PRIMARY KEY INTEGER AUTOINCREMENT,
+        id_passageiro PRIMARY KEY INTEGER AUTOINCREMENT,
         nome TEXT NOT NULL,
-        CPF TEXT NOT NULL,
-        data de nascimento DATA NOT NULL ,
+        CPF INTEGER NOT NULL,
+        data_de_nascimento DATA NOT NULL,
+        classe TEXT NOT NULL,
+        assento TEXT NOT NULL
     )
 ''')
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS terminial_viagens (
-        id_voo INTEGER PRIMARY KEY AUTOINCREMENT,
-        status voo TEXT,
-        companhia aerea TEXT,
-        horario embarque TIMESTAMP,
-        horario despacho TIMESTAMP,
+        status_voo TEXT NOT NULL,
+        horario embarque TIMESTAMP NOT NULL,
         Destino TEXT NOT NULL,
         portao INTEGER
     )
 ''')
 
 cursor.execute('''
+    CREATE TABLE IF NOT EXISTS companhia_aerea (
+        id_voo INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_aviao INTEGER NOT NULL
+        numero_voo INTEGER NOT NULL,
+        nome_companhia TEXT NOT NULL
+        )''')
+
+cursor.execute('''
     CREATE TABLE IF NOT EXISTS ticket (
         ticket id INTEGER PRIMARY KEY AUTOINCREMENT,
-        preco REAL,
-        companhia aerea TEXT,
-        plano escolhido TEXT,
-        classe TEXT,
-        assento TEXT,
-        Origem / Destino TEXT NOT NULL,
-        data voo DATE NOT NULL,
-        horario chegada TIMESTAMP,
-        horario embarque TIMESTAMP,
-        horario despacho TIMESTAMP,
-        duracao do voo TEXT NOT NULL,
-        numero voo INTEGER NOT NULL
+        preco REAL NOT NULL,
+        origem_destino TEXT NOT NULL,
+        data_voo DATE NOT NULL,
+        horario_embarque TIMESTAMP NOT NULL,
+        duracao_voo TEXT NOT NULL
     )
 ''')
 
