@@ -1,15 +1,15 @@
 import os
 import sqlite3
-from comandos import Exibir
-from comandos import Adicionar
-from comandos import Atualizar
-from comandos import Apagar
+from crud import Exibir
+from crud import Adicionar
+from crud import Atualizar
+from crud import Apagar
 
 # Conectar ao banco de dados
 conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
 
 while True:
-    os.system('cls')  # Limpa a tela no Windows
+    os.system('cls') 
     print('+----------------+')
     print('+    BEM-VINDO   +')
     print('+----------------+')
@@ -20,54 +20,75 @@ while True:
     print(' 5 - Finalizar')
     print('+----------------+')
 
-    # Solicita ao usuário a opção
     opcao = input('Opção escolhida: ')
 
-    # Verifica a opção escolhida
-    if opcao == '5':  # Finalizar
+# ========================== FINALIZAÇÃO =============
+    if opcao == '5':
+        os.system('cls') 
         print('+--------------------------+')
         print('+    Programa finalizado   +')
         print('+--------------------------+')
         break
 
-    elif opcao == '1':  # Exibir dados
+# ========================== EXIBIR =============
+    elif opcao == '1':
+        os.system('cls') 
         print('+---------------+')
         print('+    Exibindo   +')
         print('+---------------+')
         tabela = input('Digite o nome da tabela para exibir: ')
         exibir = Exibir()
         exibir.exibir(tabela)
+        input('Pressione ENTER para voltar')
 
-    elif opcao == '2':  # Adicionar dados
+# ========================== ADICIONAR =============
+    elif opcao == '2':
+        os.system('cls') 
         print('+-------------------+')
         print('+    Adicionando    +')
         print('+-------------------+')
-        tabela = input('Digite o nome da tabela para adicionar dados: ')
+        tabela = input('Digite o nome da tabela para adicionar: ')
         adicionar = Adicionar()
         adicionar.adicionar(tabela)
-
-    elif opcao == '3':  # Atualizar dados
+        print('+--------------------------------------+')
+        print('+    Registro Adcionado com sucesso !  +')
+        input('+    Pressione ENTER para voltar       +')
+        
+# ========================== ATUALIZAR =============
+    elif opcao == '3':
+        os.system('cls') 
         print('+-------------------+')
         print('+    Atualizando    +')
         print('+-------------------+')
-        tabela = input('Digite o nome da tabela para atualizar dados: ')
+        tabela = input('Digite o nome da tabela para atualizar: ')
         identificador = input('Digite o identificador (ex: cpf ou id): ')
         valor = input(f'Digite o valor do {identificador} para atualizar: ')
         atualizar = Atualizar()
         atualizar.atualizar(tabela, identificador, valor)
+        print('+---------------------------------------+')
+        print('+    Registro Atualizado com sucesso !  +')
+        input('+      Pressione ENTER para voltar      +')
 
-    elif opcao == '4':  # Apagar dados
+# ==========================  APAGAR =============
+    elif opcao == '4':
+        os.system('cls') 
         print('+----------------+')
         print('+    Apagando    +')
         print('+----------------+')
-        tabela = input('Digite o nome da tabela para apagar dados: ')
+        tabela = input('Digite o nome da tabela para apagar: ')
         identificador = input('Digite o identificador (ex: cpf ou id): ')
         valor = input(f'Digite o valor do {identificador} para apagar: ')
         apagar = Apagar()
         apagar.apagar(tabela, identificador, valor)
+        print('+------------------------------------+')
+        print('+    Registro apagado com sucesso !  +')
+        input('+    Pressione ENTER para voltar     +')
 
+# ========================== OPÇÃO INVALIDA =============
     else:
+        os.system('cls') 
         print('+------------------------------+')
         print('Opção inválida. Tente novamente.')
         print('+------------------------------+')
+        input('Pressione ENTER para voltar')
 
