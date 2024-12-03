@@ -4,13 +4,12 @@ from comandos import Exibir
 from comandos import Adicionar
 from comandos import Atualizar
 from comandos import Apagar
-conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
 
+# Conectar ao banco de dados
+conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/bd_aeroporto.db")
 
-
-os.system('cls')
 while True:
-
+    os.system('cls')  # Limpa a tela no Windows
     print('+----------------+')
     print('+    BEM-VINDO   +')
     print('+----------------+')
@@ -20,27 +19,41 @@ while True:
     print(' 4 - Apagar')
     print(' 5 - Finalizar')
     print('+----------------+')
-    opcao = ('Opção escolhida: ')
 
-    if opcao == 5:
+    # Solicita ao usuário a opção
+    opcao = input('Opção escolhida: ')
+
+    # Verifica a opção escolhida
+    if opcao == '5':  # Finalizar
         print('+----------------+')
         print('Programa finalizado')
         print('+----------------+')
         break
 
-    elif opcao == 1:
-        busca = Exibir()
-        
-    elif opcao == 2:
-        nome = input('Insira o nome: ')
-        cpf = input('Insira o CPF: ')
-        data_de_nascimento = input('Insira a data de nascimento: ')
-        classe = input('Digite sua classe: ')
-        assento = input('Digite seu assento: ')
+    elif opcao == '1':  # Exibir dados
+        tabela = input('Digite o nome da tabela para exibir: ')
+        exibir = Exibir()
+        exibir.exibir(tabela)
+
+    elif opcao == '2':  # Adicionar dados
+        tabela = input('Digite o nome da tabela para adicionar dados: ')
         adicionar = Adicionar()
-        
-    elif opcao == 3:
+        adicionar.adicionar(tabela)
+
+    elif opcao == '3':  # Atualizar dados
+        tabela = input('Digite o nome da tabela para atualizar dados: ')
+        identificador = input('Digite o identificador (ex: cpf ou id): ')
+        valor = input(f'Digite o valor do {identificador} para atualizar: ')
         atualizar = Atualizar()
-        
-    elif opcao == 4:
+        atualizar.atualizar(tabela, identificador, valor)
+
+    elif opcao == '4':  # Apagar dados
+        tabela = input('Digite o nome da tabela para apagar dados: ')
+        identificador = input('Digite o identificador (ex: cpf ou id): ')
+        valor = input(f'Digite o valor do {identificador} para apagar: ')
         apagar = Apagar()
+        apagar.apagar(tabela, identificador, valor)
+
+    else:
+        print('Opção inválida. Tente novamente.')
+
