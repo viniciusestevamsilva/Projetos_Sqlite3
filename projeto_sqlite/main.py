@@ -7,7 +7,7 @@ from crud import Apagar
 
 # Conectar ao banco de dados
 conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
-
+   
 while True:
     os.system('cls') 
     print('+-----------------+          +-------------------+')
@@ -37,9 +37,18 @@ while True:
         print('+    Exibindo   +')
         print('+---------------+')
         tabela = input('Digite o nome da tabela para exibir: ')
-        exibir = Exibir()
-        exibir.exibir(tabela)
-        input('Pressione ENTER para voltar')
+        
+        if tabela == '' and tabela == int:
+            os.system('cls') 
+            print('+------------------------------+')
+            print('Opção inválida. Tente novamente.')
+            print('+------------------------------+') 
+            input('Pressione ENTER para voltar')
+            
+        else:
+            exibir = Exibir()
+            exibir.exibir(tabela)
+            input('Pressione ENTER para voltar')
 
 # ========================== ADICIONAR =============
     elif opcao == '2':
