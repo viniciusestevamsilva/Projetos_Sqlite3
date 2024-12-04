@@ -17,8 +17,8 @@ while True:
     print('+ 2 - Adicionar   +          +      passageiro   +')
     print('+ 3 - Atualizar   +          +  terminal_viagens +')
     print('+ 4 - Apagar      +          +       ticket      +')
-    print('+ 5 - Finalizar   +          +-------------------+')
-    print('+-----------------+')
+    print('+ 5 - Finalizar   +          +                   +')
+    print('+-----------------+          +-------------------+')
 
     opcao = input('Opção escolhida: ')
 
