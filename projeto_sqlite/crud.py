@@ -5,6 +5,8 @@ import os
 # ========================== COMANDO EXIBIR =============
 class Exibir:
     def SELECT(self, tabela):
+        
+        # exibindo usando o pretttable
         conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
         cursor = conn.cursor()
 
@@ -57,6 +59,7 @@ class Adicionar:
             input('Pressione ENTER para voltar')
             return
 
+        # inserindo na tabela
         cursor.execute(f"INSERT INTO {tabela} ({', '.join(colunas)}) VALUES ({', '.join(['?'] * len(colunas))})", dados)
         
         conn.commit()
@@ -144,7 +147,8 @@ class Apagar:
             print('+------------------------------+') 
             input('Pressione ENTER para voltar')
             return
-
+        
+        # deletando o registro
         cursor.execute(f"DELETE FROM {tabela} WHERE {identificador} = ?", (valor,))
 
         conn.commit()

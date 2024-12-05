@@ -58,7 +58,7 @@ while True:
             print('+-------------------+')
             tabela = input('Digite o nome da tabela para adicionar: ')
             
-            # Verificação se são válidos e se não estao vazios
+            # Verifica se são válidos e se não estao vazios
             if not tabela or not isinstance(tabela, str):
                 os.system('cls') 
                 print('+------------------------------+')
@@ -85,7 +85,7 @@ while True:
         print('+-------------------+')
         tabela = input('Digite o nome da tabela para atualizar: ')
         
-        # Verificação se são válidos e se não estao vazios
+        # Verifica se são válidos e se não estao vazios
         if not tabela or not isinstance(tabela, str):
             os.system('cls') 
             print('+------------------------------+')
@@ -94,6 +94,7 @@ while True:
             input('Pressione ENTER para voltar')
             continue
 
+        # usando o id para apagar o registro
         identificador = input('Digite o identificador (ex: cpf ou id): ')
         
         if not identificador or not isinstance(identificador, str):
