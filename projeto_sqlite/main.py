@@ -38,7 +38,7 @@ while True:
         print('+---------------+')
         tabela = input('Digite o nome da tabela para exibir: ')
         
-        if tabela == '' and tabela == int:
+        if tabela == '' and tabela == int: # Ve se a tabela não esta vazia 
             os.system('cls') 
             print('+------------------------------+')
             print('Opção inválida. Tente novamente.')
@@ -47,37 +47,84 @@ while True:
             
         else:
             exibir = Exibir()
-            exibir.exibir(tabela)
+            exibir.SELECT(tabela)
             input('Pressione ENTER para voltar')
 
 # ========================== ADICIONAR =============
     elif opcao == '2':
-        os.system('cls') 
-        print('+-------------------+')
-        print('+    Adicionando    +')
-        print('+-------------------+')
-        tabela = input('Digite o nome da tabela para adicionar: ')
-        adicionar = Adicionar()
-        adicionar.adicionar(tabela)
-        print('+--------------------------------------+')
-        print('+    Registro Adcionado com sucesso !  +')
-        input('+    Pressione ENTER para voltar       +')
-        
+            os.system('cls') 
+            print('+-------------------+')
+            print('+    Adicionando    +')
+            print('+-------------------+')
+            tabela = input('Digite o nome da tabela para adicionar: ')
+            
+            # Verificação se são válidos e se não estao vazios
+            if not tabela or not isinstance(tabela, str):
+                os.system('cls') 
+                print('+------------------------------+')
+                print('Opção inválida. Tente novamente.')
+                print('+------------------------------+') 
+                input('Pressione ENTER para voltar')
+                
+            else:
+            
+                adicionar = Adicionar()
+                adicionar.INSERT(tabela)
+                os.system('cls')
+                print('+--------------------------------------+')
+                print('+    Registro Adicionado com sucesso!  +')
+                print('+--------------------------------------+')
+                input('Pressione ENTER para voltar')
+                
+                
 # ========================== ATUALIZAR =============
-    elif opcao == '3':
+    elif opcao == '3': 
         os.system('cls') 
         print('+-------------------+')
         print('+    Atualizando    +')
         print('+-------------------+')
         tabela = input('Digite o nome da tabela para atualizar: ')
+        
+        # Verificação se são válidos e se não estao vazios
+        if not tabela or not isinstance(tabela, str):
+            os.system('cls') 
+            print('+------------------------------+')
+            print('Opção inválida. Tente novamente.')
+            print('+------------------------------+') 
+            input('Pressione ENTER para voltar')
+            continue
+
         identificador = input('Digite o identificador (ex: cpf ou id): ')
+        
+        if not identificador or not isinstance(identificador, str):
+            os.system('cls') 
+            print('+------------------------------+')
+            print('Opção inválida. Tente novamente.')
+            print('+------------------------------+') 
+            input('Pressione ENTER para voltar')
+            continue
+
+
         valor = input(f'Digite o valor do {identificador} para atualizar: ')
+        
+        if not valor or not isinstance(valor, str):
+            os.system('cls') 
+            print('+------------------------------+')
+            print('Opção inválida. Tente novamente.')
+            print('+------------------------------+') 
+            input('Pressione ENTER para voltar')
+            continue
+
+        
         atualizar = Atualizar()
-        atualizar.atualizar(tabela, identificador, valor)
+        atualizar.UPDATE(tabela, identificador, valor)
+        os.system('cls')
         print('+---------------------------------------+')
         print('+    Registro Atualizado com sucesso !  +')
+        print('+---------------------------------------+')
         input('+      Pressione ENTER para voltar      +')
-
+    
+    
 # ==========================  APAGAR =============
     elif opcao == '4':
         os.system('cls') 
@@ -85,14 +132,45 @@ while True:
         print('+    Apagando    +')
         print('+----------------+')
         tabela = input('Digite o nome da tabela para apagar: ')
+
+        # Verificação se são válidos e se não estao vazios
+        if not tabela or not isinstance(tabela, str):
+            os.system('cls') 
+            print('+------------------------------+')
+            print('Opção inválida. Tente novamente.')
+            print('+------------------------------+') 
+            input('Pressione ENTER para voltar')
+            continue
+
         identificador = input('Digite o identificador (ex: cpf ou id): ')
+        
+        if not identificador or not isinstance(identificador, str):
+            os.system('cls') 
+            print('+------------------------------+')
+            print('Opção inválida. Tente novamente.')
+            print('+------------------------------+') 
+            input('Pressione ENTER para voltar')
+            continue
+
         valor = input(f'Digite o valor do {identificador} para apagar: ')
+        
+        if not valor or not isinstance(valor, str):
+            os.system('cls') 
+            print('+------------------------------+')
+            print('Opção inválida. Tente novamente.')
+            print('+------------------------------+') 
+            input('Pressione ENTER para voltar')
+            continue
+        
         apagar = Apagar()
-        apagar.apagar(tabela, identificador, valor)
+        apagar.DELETE(tabela, identificador, valor)
+        os.system('cls')
         print('+------------------------------------+')
         print('+    Registro apagado com sucesso !  +')
+        print('+------------------------------------+')
         input('+    Pressione ENTER para voltar     +')
-
+    
+    
 # ========================== OPÇÃO INVALIDA =============
     else:
         os.system('cls') 
