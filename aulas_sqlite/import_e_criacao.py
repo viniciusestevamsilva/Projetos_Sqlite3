@@ -2,7 +2,7 @@ import sqlite3
 
 
 # conn: é a variavel para a conexão com o banco de dados
-conn = sqlite3.connect("C:/vinicius/sqlite/aula001/arquivo.db")
+conn = sqlite3.connect("C:/vinicius/sqlite/aulas_sqlite/arquivo.db")
 
 
 # Para operações no banco de dados, você tambem precisara de um cursor,

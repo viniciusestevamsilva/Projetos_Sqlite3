@@ -2,7 +2,7 @@ import os
 import sqlite3
 from prettytable import PrettyTable
 
-conn = sqlite3.connect("C:/vinicius/sqlite/aula001/arquivo.db")
+conn = sqlite3.connect("C:/vinicius/sqlite/aulas_sqlite/arquivo.db")
 cursor = conn.cursor()
 
 cursor.execute("SELECT * FROM clientes")

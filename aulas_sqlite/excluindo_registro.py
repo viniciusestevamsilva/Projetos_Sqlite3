@@ -1,7 +1,7 @@
 import os
 import sqlite3
 
-conn = sqlite3.connect("C:/vinicius/sqlite/aula001/arquivo.db")
+conn = sqlite3.connect("C:/vinicius/sqlite/aulas_sqlite/arquivo.db")
 
 cursor = conn.cursor()
 
