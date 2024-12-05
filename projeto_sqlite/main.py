@@ -5,7 +5,7 @@ from crud import Adicionar
 from crud import Atualizar
 from crud import Apagar
 
-# Conectar ao banco de dados
+# Conectar ao banco de dado
 conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
    
 while True:
