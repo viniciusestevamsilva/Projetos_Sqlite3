@@ -123,6 +123,8 @@ class Apagar:
         conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
         cursor = conn.cursor()
         
+        # conn.execute("PRAGMA foreign_keys = ON;") ativar para o ON DELETE CASCADE funcionar
+        
         # Verificação se são válidos e se não estao vazios
         if not tabela or not isinstance(tabela, str):
             os.system('cls') 
