@@ -30,6 +30,7 @@ while True:
         print('+--------------------------+')
         break
 
+
 # ========================== EXIBIR =============
     elif opcao == '1':
         os.system('cls') 
@@ -52,6 +53,7 @@ while True:
             print(f'+ Exibindo a tabela: {tabela}')
             print('+------------------------------------+')
             input('+    Pressione ENTER para voltar     +')
+
 
 # ========================== ADICIONAR =============
     elif opcao == '2':
@@ -135,7 +137,6 @@ while True:
                 break 
 
     
-    
 # ==========================  APAGAR =============
     elif opcao == '4':
         while True:
@@ -185,7 +186,6 @@ while True:
             if opcao == 'n':
                 break 
 
-    
     
 # ========================== OPÇÃO INVALIDA =============
     else:
