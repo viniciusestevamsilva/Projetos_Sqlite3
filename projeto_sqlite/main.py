@@ -74,7 +74,12 @@ while True:
                 print('+--------------------------------------+')
                 print('+    Registro Adicionado com sucesso!  +')
                 print('+--------------------------------------+')
-                input('Pressione ENTER para voltar')
+                opcao = input('+       Deseja adicionar outro?(s/n)       +')
+                
+            if opcao == 'n':
+                break
+                    
+                
                 
                 
 # ========================== ATUALIZAR =============
