@@ -46,9 +46,12 @@ while True:
             input('Pressione ENTER para voltar')
             
         else:
+            os.system('cls')
             exibir = Exibir()
             exibir.SELECT(tabela)
-            input('Pressione ENTER para voltar')
+            print(f'+ Exibindo a tabela: {tabela}')
+            print('+------------------------------------+')
+            input('+    Pressione ENTER para voltar     +')
 
 # ========================== ADICIONAR =============
     elif opcao == '2':
@@ -75,8 +78,8 @@ while True:
                 print('+--------------------------------------+')
                 print('+    Registro Adicionado com sucesso!  +')
                 print('+--------------------------------------+')
-            
-                opcao = input('+       Deseja adicionar outro? (s/n)       +')
+                print('+        Deseja adicionar outro?       +')
+                opcao = input('- :')
             
                 if opcao == 'n':
                     break 
@@ -126,8 +129,8 @@ while True:
             print('+---------------------------------------+')
             print('+    Registro Atualizado com sucesso !  +')
             print('+---------------------------------------+')
-            
-            opcao = input('+    Deseja atualizar outro? (s/n)    +')
+            print('+        Deseja atualizar outro?        +')
+            opcao = input('- :')
             if opcao == 'n':
                 break 
 
@@ -177,8 +180,8 @@ while True:
             print('+------------------------------------+')
             print('+    Registro apagado com sucesso !  +')
             print('+------------------------------------+')
-            
-            opcao = input('+    Deseja apagar outro? (s/n)     +')
+            print('+        Deseja apagar outro?        +')
+            opcao = input('- :')
             if opcao == 'n':
                 break 
 
