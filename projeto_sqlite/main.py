@@ -1,6 +1,5 @@
 import os
 import sqlite3
-import time
 from crud import Exibir
 from crud import Adicionar
 from crud import Atualizar
@@ -25,37 +24,6 @@ while True:
 
 # ========================== FINALIZAÇÃO =============
     if opcao == '5':
-        for i in range(0,3):
-            os.system('cls')
-            print('___________________________________________')
-            print('|//////                                 12%|')
-            time.sleep(2)
-            os.system('cls')
-            print('___________________________________________')
-            print('|///////////                            22%|')
-            time.sleep(2)
-            os.system('cls')
-            print('___________________________________________')
-            print('|/////////////////                      40%|')
-            time.sleep(2)
-            os.system('cls')
-            print('___________________________________________')
-            print('|//////////////////////////             68%|')
-            time.sleep(2)
-            os.system('cls')
-            print('___________________________________________')
-            print('|///////////////////////////////        75%|')
-            time.sleep(2)
-            os.system('cls')
-            print('___________________________________________')
-            print('|////////////////////////////////////// 99%|')
-            time.sleep(2)
-            os.system('cls')
-            print('Error de carregamento... Recomeçando')
-            time.sleep(2)
-            os.system('cls') 
-
-        print('Carregamento concluido !')
         os.system('cls') 
         print('+--------------------------+')
         print('|    Programa finalizado   |')
@@ -79,20 +47,6 @@ while True:
             input('|   Pressione ENTER para voltar   |')
             
         else:
-            for i in range(0,3):
-                os.system('cls') 
-                print('Preparando recursos  @')
-                time.sleep(2)
-                os.system('cls') 
-                print('Preparando recursos  . @')
-                time.sleep(2)
-                os.system('cls') 
-                print('Preparando recursos  .. @')
-                time.sleep(2)
-                os.system('cls') 
-                print('Preparando recursos  ... @')
-                time.sleep(2)
-            
             os.system('cls')
             exibir = Exibir()
             exibir.SELECT(tabela)
@@ -103,14 +57,18 @@ while True:
 
 # ========================== ADICIONAR =============
     elif opcao == '2':
-        while True:  # Loop para continuar pedindo a adição
+        while True: 
             os.system('cls') 
-            print('+-------------------+')
-            print('|    Adicionando    |')
-            print('+-------------------+')
+            print('+---------------------------+')
+            print('|         Adicionando       |')
+            print('+---------------------------+')
             tabela = input('Digite o nome da tabela para adicionar: ')
             
-            # Verifica se são válidos e se não estão vazios
+            os.system('cls')
+            exibir = Exibir()
+            exibir.SELECT(tabela)
+            print(f'| Exibindo a tabela: {tabela}')
+            
             if not tabela or not isinstance(tabela, str):
                 os.system('cls') 
                 print('+---------------------------------+')
@@ -128,6 +86,7 @@ while True:
                 print('|    Registro Adicionado com sucesso!  |')
                 print('+--------------------------------------+')
                 print('|        Deseja adicionar outro?       |')
+                print('|           Sim(s) ou Não(n)           |')
                 opcao = input('| - :')
             
                 if opcao == 'n':
@@ -143,6 +102,10 @@ while True:
             print('+-------------------+')
             tabela = input('Digite o nome da tabela para atualizar: ')
             
+            os.system('cls')
+            exibir = Exibir()
+            exibir.SELECT(tabela)
+            
             # Verifica se são válidos e se não estão vazios
             if not tabela or not isinstance(tabela, str):
                 os.system('cls') 
@@ -152,7 +115,7 @@ while True:
                 input('|   Pressione ENTER para voltar   |')
                 continue
 
-            identificador = input('Digite o identificador (ex: cpf ou id): ')
+            identificador = input('Digite o identificador (id): ')
             
             if not identificador or not isinstance(identificador, str):
                 os.system('cls') 
@@ -181,6 +144,7 @@ while True:
             print('|    Registro Atualizado com sucesso !  |')
             print('+---------------------------------------+')
             print('|        Deseja atualizar outro?        |')
+            print('|           Sim(s) ou Não(n)            |')
             opcao = input('- :')
             if opcao == 'n':
                 break 
@@ -191,27 +155,30 @@ while True:
         while True:
             os.system('cls') 
             print('+----------------+')
-            print('+    Apagando    +')
+            print('|    Apagando    |')
             print('+----------------+')
             tabela = input('Digite o nome da tabela para apagar: ')
 
+            os.system('cls')
+            exibir = Exibir()
+            exibir.SELECT(tabela)
             # Verificação se são válidos e se não estão vazios
             if not tabela or not isinstance(tabela, str):
                 os.system('cls')
                 print('+---------------------------------+')
-                print('+ Opção inválida. Tente novamente.+')
+                print('| Opção inválida. Tente novamente.|')
                 print('+---------------------------------+')
-                input('Pressione ENTER para voltar')
+                input('|   Pressione ENTER para voltar   |')
                 continue
 
-            identificador = input('Digite o identificador (ex: cpf ou id): ')
+            identificador = input('Digite o identificador (id): ')
             
             if not identificador or not isinstance(identificador, str):
                 os.system('cls') 
                 print('+---------------------------------+')
-                print('+ Opção inválida. Tente novamente.+')
+                print('| Opção inválida. Tente novamente.|')
                 print('+---------------------------------+')
-                input('Pressione ENTER para voltar')
+                input('|   Pressione ENTER para voltar   |')
                 continue
 
             valor = input(f'Digite o valor do {identificador} para apagar: ')
@@ -219,9 +186,9 @@ while True:
             if not valor or not isinstance(valor, str):
                 os.system('cls') 
                 print('+---------------------------------+')
-                print('+ Opção inválida. Tente novamente.+')
+                print('| Opção inválida. Tente novamente.|')
                 print('+---------------------------------+')
-                input('Pressione ENTER para voltar')
+                input('|   Pressione ENTER para voltar   |')
                 continue
             
             apagar = Apagar()
@@ -229,9 +196,10 @@ while True:
             os.system('cls')
             exibir = Exibir()
             exibir.SELECT(tabela)
-            print('+    Registro apagado com sucesso !  +')
+            print('|    Registro apagado com sucesso !  |')
             print('+------------------------------------+')
-            print('+        Deseja apagar outro?        +')
+            print('|        Deseja apagar outro?        |')
+            print('|         Sim(s) ou Não(n)           |')
             opcao = input('- :')
             if opcao == 'n':
                 break 

@@ -4,9 +4,9 @@ import os
 
 # ========================== COMANDO EXIBIR =============
 class Exibir:
+    
     def SELECT(self, tabela):
         
-        # exibindo usando o pretttable
         conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
         cursor = conn.cursor()
 
@@ -30,43 +30,71 @@ class Exibir:
 
 # ========================== COMANDO ADICIONAR =============
 class Adicionar:
+    
     def INSERT(self, tabela):
         conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
         cursor = conn.cursor()
         
-        # verifica se a tabela não esta vazia ou se é uma instancia invalida
+        # verifica se a tabela não esta vazia ou se é invalida
         if not tabela or not isinstance(tabela, str):
             os.system('cls') 
-            print('+------------------------------+')
-            print('Opção inválida. Tente novamente.')
-            print('+------------------------------+') 
-            input('Pressione ENTER para voltar')
+            print('+---------------------------------+')
+            print('| Opção inválida. Tente novamente.|')
+            print('+---------------------------------+')
+            input('|   Pressione ENTER para voltar   |')
             return
-
-        conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
-        cursor = conn.cursor()
-
 
         colunas = input('Digite as colunas (separados por vírgula): ').split(',')
-        dados = input('Digite os dados (separados por vírgula): ').split(',')
+        print('+---------------------------+')
+        print('|    Deseja adicionar um    |')
+        print('|         ou varios?        |')
+        print('| 1 - para um               |')
+        print('| 2 - para varios           |')
+        print('+---------------------------+')
+        escolha = input('Deseja adicionar um ou vários registros?: ')
         
-        # Verifica se as colunas ou dados estão vazios
-        if not colunas or not dados or len(colunas) != len(dados):
-            os.system('cls') 
-            print('+------------------------------+')
-            print('Opção inválida. Tente novamente.')
-            print('+------------------------------+') 
-            input('Pressione ENTER para voltar')
-            return
+        if escolha == '1':
+            dados = input('Digite os dados (separados por vírgula): ').split(',')
+            
+            if not colunas or not dados or len(colunas) != len(dados):
+                os.system('cls') 
+                print('+---------------------------------+')
+                print('| Opção inválida. Tente novamente.|')
+                print('+---------------------------------+')
+                input('|   Pressione ENTER para voltar   |')
+                return
 
-        # inserindo na tabela
-        cursor.execute(f"INSERT INTO {tabela} ({', '.join(colunas)}) VALUES ({', '.join(['?'] * len(colunas))})", dados)
+            cursor.execute(f"INSERT INTO {tabela} ({', '.join(colunas)}) VALUES ({', '.join(['?'] * len(colunas))})", dados)
+            conn.commit()
         
-        conn.commit()
+
+        elif escolha == '2':
+            dados_lista = []
+            while True:
+                dados = input('Digite os dados do próximo registro (separados por vírgula): ')
+                print('Digite "para" para finalizar')
+                if dados.lower() == 'parar':
+                    break
+                dados_lista.append(dados.split(','))
+            
+            # Verifica se há dados para inserir
+            if not dados_lista:
+                os.system('cls') 
+                print('+---------------------------------+')
+                print('| Não há registros para adicionar.|')
+                print('+---------------------------------+')
+                input('|   Pressione ENTER para voltar   |')
+                return
+            
+            cursor.executemany(f"INSERT INTO {tabela} ({', '.join(colunas)}) VALUES ({', '.join(['?'] * len(colunas))})", dados_lista)
+            conn.commit()
+
         conn.close()
+
 
 # ========================== COMANDO ATUALIZAR =============
 class Atualizar:
+    
     def UPDATE(self, tabela, identificador, valor):
         conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
         cursor = conn.cursor()
@@ -74,26 +102,26 @@ class Atualizar:
         # Verificação se são válidos e se não estao vazios
         if not tabela or not isinstance(tabela, str):
             os.system('cls') 
-            print('+------------------------------+')
-            print('Opção inválida. Tente novamente.')
-            print('+------------------------------+') 
-            input('Pressione ENTER para voltar')
+            print('+---------------------------------+')
+            print('| Opção inválida. Tente novamente.|')
+            print('+---------------------------------+')
+            input('|   Pressione ENTER para voltar   |')
             return
 
         if not identificador or not isinstance(identificador, str):
             os.system('cls') 
-            print('+------------------------------+')
-            print('Opção inválida. Tente novamente.')
-            print('+------------------------------+') 
-            input('Pressione ENTER para voltar')
+            print('+---------------------------------+')
+            print('| Opção inválida. Tente novamente.|')
+            print('+---------------------------------+')
+            input('|   Pressione ENTER para voltar   |')
             return
 
         if not valor or not isinstance(valor, str):
             os.system('cls') 
-            print('+------------------------------+')
-            print('Opção inválida. Tente novamente.')
-            print('+------------------------------+') 
-            input('Pressione ENTER para voltar')
+            print('+---------------------------------+')
+            print('| Opção inválida. Tente novamente.|')
+            print('+---------------------------------+')
+            input('|   Pressione ENTER para voltar   |')
             return
 
         colunas = input('Digite as colunas que serão atualizadas (separadas por vírgulas): ').split(',')
@@ -101,10 +129,10 @@ class Atualizar:
 
         if len(colunas) != len(dados):
             print('+----------------------------------------+')
-            print("+   O número de colunas não corresponde  +")
-            print("+      ao número de dados fornecidos.    +")
+            print("|   O número de colunas não corresponde  |")
+            print("|      ao número de dados fornecidos.    |")
             print('+----------------------------------------+')
-            input('Pressione ENTER para voltar')
+            input('       Pressione ENTER para voltar       ')
             return
 
         # Atualiza os registros
@@ -119,35 +147,36 @@ class Atualizar:
 
 # ========================== COMANDO APAGAR =============
 class Apagar:
+    
     def DELETE(self, tabela, identificador, valor):
         conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
         cursor = conn.cursor()
         
-        # conn.execute("PRAGMA foreign_keys = ON;") ativar para o ON DELETE CASCADE funcionar
+        conn.execute("PRAGMA foreign_keys = ON;") # ativar o ON DELETE CASCADE
         
         # Verificação se são válidos e se não estao vazios
         if not tabela or not isinstance(tabela, str):
             os.system('cls') 
-            print('+------------------------------+')
-            print('Opção inválida. Tente novamente.')
-            print('+------------------------------+') 
-            input('Pressione ENTER para voltar')
+            print('+---------------------------------+')
+            print('| Opção inválida. Tente novamente.|')
+            print('+---------------------------------+')
+            input('|   Pressione ENTER para voltar   |')
             return
 
         if not identificador or not isinstance(identificador, str):
             os.system('cls') 
-            print('+------------------------------+')
-            print('Opção inválida. Tente novamente.')
-            print('+------------------------------+') 
-            input('Pressione ENTER para voltar')
+            print('+---------------------------------+')
+            print('| Opção inválida. Tente novamente.|')
+            print('+---------------------------------+')
+            input('|   Pressione ENTER para voltar   |')
             return
 
         if not valor or not isinstance(valor, str):
             os.system('cls') 
-            print('+------------------------------+')
-            print('Opção inválida. Tente novamente.')
-            print('+------------------------------+') 
-            input('Pressione ENTER para voltar')
+            print('+---------------------------------+')
+            print('| Opção inválida. Tente novamente.|')
+            print('+---------------------------------+')
+            input('|   Pressione ENTER para voltar   |')
             return
         
         # deletando o registro
