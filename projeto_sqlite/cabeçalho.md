@@ -13,4 +13,4 @@ Data: 06/12/2024
 OBSERVAÇÕES: 
 Eu fiz a atividade com base em orientação a objeto com classes e funções modularizadas , tendo o "main" como meu arquivo principal com os menus
 e o arquivo "crud" onde estão minhas classes e funções que estou chamando na main, a "criação_tabela" foi um arquivo que fiz para poder criar
-as tabelas do banco de dados, e não faz nada alem disso, testei algumas coisa com relacionamento e aparentemente tudo funciona normal
+as tabelas do banco de dados, e não faz nada alem disso.
