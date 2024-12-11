@@ -1,7 +1,7 @@
 import sqlite3
 
 
-conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
+conn = sqlite3.connect("C:/vinicius/sqlite/atividade_sqlite/aeroporto.db")
 
 cursor = conn.cursor()
 

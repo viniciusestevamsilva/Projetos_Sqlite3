@@ -7,7 +7,7 @@ class Exibir:
     
     def SELECT(self, tabela):
         
-        conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
+        conn = sqlite3.connect("C:/vinicius/sqlite/atividade_sqlite/aeroporto.db")
         cursor = conn.cursor()
 
         
@@ -33,7 +33,7 @@ class Adicionar:
     
     def INSERT(self, tabela):
         
-        conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
+        conn = sqlite3.connect("C:/vinicius/sqlite/atividade_sqlite/aeroporto.db")
         cursor = conn.cursor()
         
         # verifica se a tabela não esta vazia ou se é invalida
@@ -111,7 +111,7 @@ class Atualizar:
     
     def UPDATE(self, tabela, identificador, valor):
         
-        conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
+        conn = sqlite3.connect("C:/vinicius/sqlite/atividade_sqlite/aeroporto.db")
         cursor = conn.cursor()
         
         # Verificação se são válidos e se não estao vazios
@@ -171,7 +171,7 @@ class Atualizar:
 class Apagar:
     
     def DELETE(self, tabela, identificador, valor):
-        conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
+        conn = sqlite3.connect("C:/vinicius/sqlite/atividade_sqlite/aeroporto.db")
         cursor = conn.cursor()
     
         

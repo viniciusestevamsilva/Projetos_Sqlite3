@@ -11,7 +11,7 @@ from crud import Atualizar
 from crud import Apagar
 
 # Conectando com banco de dado
-conn = sqlite3.connect("C:/vinicius/sqlite/projeto_sqlite/aeroporto.db")
+conn = sqlite3.connect("C:/vinicius/sqlite/atividade_sqlite/aeroporto.db")
    
 while True:
     
