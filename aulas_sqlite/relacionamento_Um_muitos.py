@@ -14,7 +14,7 @@ os.system('cls')
 # conexão com o banco de dados (arquivo sera criado caso não existir)
 
 # Caminha Relativos
-db_path = Path('BD') / 'bd_rel_1_n.db'
+db_path = Path('aulas_sqlite') / 'bd_rel_1_n.db'
 conn = sqlite3.connect(str(db_path))
 cursor = conn.cursor()
 
