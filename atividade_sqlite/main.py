@@ -12,6 +12,7 @@ from crud import Apagar
 
 # Conectando com banco de dado
 conn = sqlite3.connect("C:/vinicius/sqlite/atividade_sqlite/aeroporto.db")
+conn.execute("PRAGMA foreign_keys = ON;") # ativar o ON DELETE CASCADE
    
 while True:
     
@@ -203,8 +204,8 @@ while True:
                 print('+---------------------------------+')
                 input('|   Pressione ENTER para voltar   |')
                 continue
-
-            identificador = input('Digite o identificador (id): ')
+            
+            identificador = input('Digite o identificador (id) \nExemplo: id_passageiro: ')
             
             if not identificador or not isinstance(identificador, str):
                 

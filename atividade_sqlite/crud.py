@@ -82,7 +82,7 @@ class Adicionar:
             while True:
                 
                 dados = input('Digite os dados do próximo registro (separados por vírgula): ')
-                print('Digite "para" para finalizar')
+                print('Digite "parar" para finalizar')
                 
                 if dados.lower() == 'parar':
                     break
@@ -172,8 +172,8 @@ class Apagar:
     
     def DELETE(self, tabela, identificador, valor):
         conn = sqlite3.connect("C:/vinicius/sqlite/atividade_sqlite/aeroporto.db")
+        conn.execute("PRAGMA foreign_keys = ON;") # ativar o ON DELETE CASCADE
         cursor = conn.cursor()
-    
         
         # Verificação se são válidos e se não estao vazios
         if not tabela or not isinstance(tabela, str):
