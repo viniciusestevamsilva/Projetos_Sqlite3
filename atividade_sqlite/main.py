@@ -205,7 +205,7 @@ while True:
                 input('|   Pressione ENTER para voltar   |')
                 continue
             
-            identificador = input('Digite o identificador (id) \nExemplo: id_passageiro: ')
+            identificador = input('Exemplo: id_passageiro,nome,etc... \nDigite o identificador: ')
             
             if not identificador or not isinstance(identificador, str):
                 
