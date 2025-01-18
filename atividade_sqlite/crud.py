@@ -34,6 +34,7 @@ class Adicionar:
     def INSERT(self, tabela):
         
         conn = sqlite3.connect("C:/vinicius/sqlite/atividade_sqlite/aeroporto.db")
+        conn.execute("PRAGMA foreign_keys = ON;") # ativar o ON DELETE/UPDATE CASCADE
         cursor = conn.cursor()
         
         # verifica se a tabela não esta vazia ou se é invalida
@@ -112,6 +113,7 @@ class Atualizar:
     def UPDATE(self, tabela, identificador, valor):
         
         conn = sqlite3.connect("C:/vinicius/sqlite/atividade_sqlite/aeroporto.db")
+        conn.execute("PRAGMA foreign_keys = ON;") # ativar o ON DELETE/UPDATE CASCADE
         cursor = conn.cursor()
         
         # Verificação se são válidos e se não estao vazios
@@ -172,7 +174,7 @@ class Apagar:
     
     def DELETE(self, tabela, identificador, valor):
         conn = sqlite3.connect("C:/vinicius/sqlite/atividade_sqlite/aeroporto.db")
-        conn.execute("PRAGMA foreign_keys = ON;") # ativar o ON DELETE CASCADE
+        conn.execute("PRAGMA foreign_keys = ON;") # ativar o ON DELETE/UPDATE CASCADE
         cursor = conn.cursor()
         
         # Verificação se são válidos e se não estao vazios
