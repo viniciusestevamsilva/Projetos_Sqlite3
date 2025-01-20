@@ -18,9 +18,6 @@ cursor.execute('''
     )
 ''')
 
-
-
-
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS terminal_viagens (
         id_terminal INTEGER PRIMARY KEY AUTOINCREMENT,  
@@ -31,9 +28,6 @@ cursor.execute('''
     )
 ''')
 
-
-
-
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS aviao (
         id_aviao INTEGER PRIMARY KEY AUTOINCREMENT,  
@@ -41,9 +35,6 @@ cursor.execute('''
         capacidade INTEGER NOT NULL
     )
 ''')
-
-
-
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS companhia_aerea (
@@ -55,9 +46,6 @@ cursor.execute('''
     )
 ''')
 
-
-
-
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS rota (
         id_rota INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -66,9 +54,6 @@ cursor.execute('''
         UNIQUE (origem, destino)
     )
 ''')
-
-
-
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS voo (
@@ -79,7 +64,6 @@ cursor.execute('''
         FOREIGN KEY (id_companhia) REFERENCES companhia_aerea(id_companhia) ON DELETE CASCADE ON UPDATE CASCADE 
     )
 ''')
-
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS ticket (
@@ -97,7 +81,6 @@ cursor.execute('''
     )
 ''')
 
-
 cursor.execute('''
         CREATE TABLE IF NOT EXISTS pagamento (
         pagamento_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -110,7 +93,5 @@ cursor.execute('''
     )
 ''')
 
-
 conn.commit()
 conn.close()
-

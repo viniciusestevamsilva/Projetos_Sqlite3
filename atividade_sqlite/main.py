@@ -22,7 +22,7 @@ while True:
     print('+-----------------+          +--------------------------------------+')
     print('| 1 - Exibir      |          |       aviao       | terminal viagens |')
     print('| 2 - Adicionar   |          |  companhia aerea  |       ticket     |')
-    print('| 3 - Atualizar   |          |  pagamento ticket |        voo       |')
+    print('| 3 - Atualizar   |          |      pagamento    |        voo       |')
     print('| 4 - Apagar      |          |     passageiro    |                  |')
     print('| 5 - Finalizar   |          |        rota       |                  |')
     print('+-----------------+          +--------------------------------------+')
@@ -42,7 +42,6 @@ while True:
         time.sleep(3)
         os.system('cls')
         break
-
 
 # ========================== EXIBIR =============
     elif opcao == '1':
@@ -71,7 +70,6 @@ while True:
             print(f'| Exibindo a tabela: {tabela}')
             print('+------------------------------------+')
             input('|    Pressione ENTER para voltar     |')
-
 
 # ========================== ADICIONAR =============
     elif opcao == '2':
@@ -115,8 +113,7 @@ while True:
             
                 if opcao == 'n':
                     break 
-                
-                
+                            
 # ========================== ATUALIZAR =============
     elif opcao == '3':
         
@@ -142,7 +139,7 @@ while True:
                 input('|   Pressione ENTER para voltar   |')
                 continue
 
-            identificador = input('Digite o identificador (id): ')
+            identificador = input('Exemplo: id_passageiro,nome,etc... \nDigite o identificador: ')
             
             if not identificador or not isinstance(identificador, str):
                 
@@ -178,7 +175,6 @@ while True:
             opcao = input('- :')
             if opcao == 'n':
                 break 
-
     
 # ==========================  APAGAR =============
     elif opcao == '4':
@@ -241,8 +237,7 @@ while True:
             opcao = input('- :')
             if opcao == 'n':
                 break 
-
-    
+  
 # ========================== OPÇÃO INVALIDA =============
     else:
         

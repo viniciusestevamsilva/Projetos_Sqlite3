@@ -77,7 +77,6 @@ class Adicionar:
         
 
         elif escolha == '2':
-            #usa a lista para executemany
             dados_lista = []
             
             while True:
@@ -88,9 +87,8 @@ class Adicionar:
                 if dados.lower() == 'parar':
                     break
                 
-                dados_lista.append(dados.split(',')) #inseri os valores na lista 
+                dados_lista.append(dados.split(','))
             
-            # Verifica se ha dados para inserir
             if not dados_lista:
                 
                 os.system('cls') 
@@ -157,7 +155,6 @@ class Atualizar:
             input('       Pressione ENTER para voltar       ')
             return
 
-        # Atualiza os registros
         for i in range(len(colunas)):
             
             coluna = colunas[i].strip()
@@ -174,7 +171,7 @@ class Apagar:
     
     def DELETE(self, tabela, identificador, valor):
         conn = sqlite3.connect("C:/vinicius/sqlite/atividade_sqlite/aeroporto.db")
-        conn.execute("PRAGMA foreign_keys = ON;") # ativar o ON DELETE/UPDATE CASCADE
+        conn.execute("PRAGMA foreign_keys = ON;")
         cursor = conn.cursor()
         
         # Verificação se são válidos e se não estao vazios
